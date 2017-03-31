@@ -1,0 +1,49 @@
+<!-- 
+1. Prompt pop up displays: Choose your difficulty: normal or hard 
+	Normal: Gascoigne, Ebrietas, Micolash
+	Hard: Blood Starved Beast, Orphan of Kos, Queen of Vilebloods
+2. Once difficulty has been chosen, start music of whatever boss it is the user is trying to guess
+3. "type any letter", empty word (letters replaced with underscore), wins 0, letters already guessed empty 
+4. user types key 
+	if user guesses correctly, update word
+	if user guesses incorrectly, add to "letters guessed" and subtract from # of guesses remaining
+	if user guesses incorrectly but has already guessed that same letter, don't do anything 
+5. if user guesses word correctly before # of guesses is up OR before music is over, add to wins, display "Prey Slaughtered" on top of boss's photo ("Prey Slaughtered will have to be somewhat transparent")
+6. if user doesn't guess word correctly before # of guesses is up OR before music is over, display "You Died" photo -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<title>Bloodborne Hangman</title>
+</head>
+<body>
+	<div class="page-header">
+		HANGMAN<br>
+		Bloodborne Style
+	</div>
+
+	<div class="main-content">
+		<h3 id="instructions">Type any letter to begin!</h3>
+		<p>May the good blood guide your way...</p>
+		<div class="row">
+			<div class="col-md-6">
+				<h3>Current word</h3>
+				<p>_ _ _ _ _ _ _</p>
+				<h3>Tries left: <span>12</span></h3>
+			</div>
+			<div class="col-md-6">
+				<h3>Letters left</h3>
+				<p>a b c d e f g</p>
+				<p>h i j k l m n</p>
+				<p>o p q r s t u</p>
+				<p>v w x y z</p>
+			</div>
+		</div>
+		<h3 id="score">Wins: <span>0</span></h3>
+
+	</div>
+</body>
+</html>
