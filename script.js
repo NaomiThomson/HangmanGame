@@ -28,7 +28,12 @@ if (difficulty === 'Hard') {
 	underscores(hardNames[0], word_underscores);
 }
 
-console.log(word_underscores);
+// replace word with underscores and update innerHTML
+var new_word = ''; 
+for (i = 0; i < word_underscores.length; i++) {
+	new_word += word_underscores[i]
+}
+document.getElementById('current-word').innerHTML = new_word;
 
 // initializing letters guessed
 var letters_guessed = new Array();
@@ -58,14 +63,17 @@ document.onkeyup = function(event) {
 		};
 	};
 
-	console.log(word_underscores);
+	// change word with revealed letters and update innerHTML
+	var current_word = ''; 
+	for (i = 0; i < word_underscores.length; i++) {
+		current_word += word_underscores[i]
+	}
+	document.getElementById('current-word').innerHTML = current_word.toUpperCase();
 
-
-	// !!!!! NEED TO UPDATE TRIES LEFT IN HTML !!!!! 
 	// if letter isn't in the word and has not already been guessed, subtract from tries left
 	if (isInArray(word_expand, letter) === false && isInArray(letters_guessed, letter) === false) {
 		tries = tries - 1;
-		console.log(tries);
+		document.getElementById('tries-left').innerHTML = tries;
 
 	};
 
