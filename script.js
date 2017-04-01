@@ -1,5 +1,5 @@
 // hangman words
-easyNames = ['gascoigne', 'ebrietas', 'micolash']; 
+easyNames = ['Gascoigne', 'Ebrietas', 'Micolash']; 
 hardNames = ['Blood Starved Beast', 'Orphan of Kos', 'Queen of Vilebloods'];
 
 // initializing score
@@ -50,22 +50,15 @@ document.onkeyup = function(event) {
 	function isInArray(word, letter) {
     	return word.indexOf(letter.toLowerCase()) > -1;
 	};
-
-	// !!!!! NEED TO FIGURE OUT HOW TO REVEAL LETTER IN 2 INDICES !!!!!
-	// if letter is in the word, reveal letter
 	
-	var letter_index = 
+	// for letters found inside the word, reveal letter
 	for (var i = 0; i < word_expand.length; i++) {
-		if (isInArray(word_expand, letter) === true) {
-			var letter_index = word_expand.indexOf(letter);
-			console.log(letter_index);
-			word_underscores[letter_index] = letter; 
+		if (isInArray(word_expand, letter) === true && word_expand[i].toLowerCase() === letter) {
+		word_underscores[i] = letter;
 		};
-		console.log(i);
 	};
-	
-	console.log(word_underscores);
 
+	console.log(word_underscores);
 
 
 	// !!!!! NEED TO UPDATE TRIES LEFT IN HTML !!!!! 
