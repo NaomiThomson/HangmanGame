@@ -1,5 +1,5 @@
 // hangman words
-easyNames = ['Gascoigne', 'Ebrietas', 'Micolash']; 
+easyNames = ['gascoigne', 'ebrietas', 'micolash']; 
 hardNames = ['Blood Starved Beast', 'Orphan of Kos', 'Queen of Vilebloods'];
 
 // initializing score
@@ -7,7 +7,28 @@ var wins = 0;
 var tries = 12;
 
 // initializing hidden word 
-var unknown_word = ['_', '_', '_', '_', '_', '_', '_', '_', '_'];
+var word_underscores = []; 
+
+var difficulty = prompt('Easy or Hard?');
+
+// !!!!! NEED TO FIGURE OUT HOW TO OMIT SPACE !!!!!! 
+// take in a word (string) and replace letters with underscores
+function underscores(word, newArray) {
+	for (var i=0; i < word.length; i++) {
+		newArray.push('_');
+	};
+
+}; 
+
+if (difficulty === 'Easy') {
+	underscores(easyNames[0], word_underscores);
+}
+
+if (difficulty === 'Hard') {
+	underscores(hardNames[0], word_underscores);
+}
+
+console.log(word_underscores);
 
 // initializing letters guessed
 var letters_guessed = new Array();
@@ -32,15 +53,22 @@ document.onkeyup = function(event) {
 
 	// !!!!! NEED TO FIGURE OUT HOW TO REVEAL LETTER IN 2 INDICES !!!!!
 	// if letter is in the word, reveal letter
-	if (isInArray(word_expand, letter) === true) {
-		var letter_index = word_expand.indexOf(letter.toLowerCase());
-		unknown_word[letter_index] = letter; 
-		// var reveal_letter = document.getElementById('current-word').;
-		console.log(unknown_word);
-		
+	
+	var letter_index = 
+	for (var i = 0; i < word_expand.length; i++) {
+		if (isInArray(word_expand, letter) === true) {
+			var letter_index = word_expand.indexOf(letter);
+			console.log(letter_index);
+			word_underscores[letter_index] = letter; 
+		};
+		console.log(i);
 	};
+	
+	console.log(word_underscores);
 
 
+
+	// !!!!! NEED TO UPDATE TRIES LEFT IN HTML !!!!! 
 	// if letter isn't in the word and has not already been guessed, subtract from tries left
 	if (isInArray(word_expand, letter) === false && isInArray(letters_guessed, letter) === false) {
 		tries = tries - 1;
@@ -51,7 +79,6 @@ document.onkeyup = function(event) {
 
 	// add letter to letters guessed 
 	letters_guessed.push(letter);
-	console.log(letters_guessed);
 
 	// delete letter guessed from letters left
 	if (isInArray(letters_guessed, letter) === true) {
@@ -59,5 +86,4 @@ document.onkeyup = function(event) {
 		delete_letter.style.visibility = 'hidden';
 	};
 
-
-}
+} 
