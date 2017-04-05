@@ -1,5 +1,5 @@
 * {
-	background-color: black; 
+	background-color: black;
 	font-family: 'Lobster', cursive;
 	color: #A62222;
 }
@@ -35,4 +35,20 @@ h3 {
 p {
 	text-align: center;
 	font-family: 'Raleway', sans-serif;
+}
+
+.win-img {
+	width: 450px;
+	height: 250px;
+	margin: 0 auto;
+	background-image: url('../images/preyslaughtered.jpg');
+	background-size: contain;
+}
+
+.lose-img {
+	width: 450px;
+	height: 250px;
+	margin: 0 auto;
+	background-image: url('../images/youdied.jpg');
+	background-size: contain;
 }

@@ -1,13 +1,13 @@
-<!-- 
-1. Prompt pop up displays: Choose your difficulty: normal or hard 
+<!--
+1. Prompt pop up displays: Choose your difficulty: normal or hard
 	Normal: Gascoigne, Ebrietas, Micolash
 	Hard: Blood Starved Beast, Orphan of Kos, Queen of Vilebloods
 2. Once difficulty has been chosen, start music of whatever boss it is the user is trying to guess
-3. "type any letter", empty word (letters replaced with underscore), wins 0, letters already guessed empty 
-4. user types key 
+3. "type any letter", empty word (letters replaced with underscore), wins 0, letters already guessed empty
+4. user types key
 	if user guesses correctly, update word
 	if user guesses incorrectly, add to "letters guessed" and subtract from # of guesses remaining
-	if user guesses incorrectly but has already guessed that same letter, don't do anything 
+	if user guesses incorrectly but has already guessed that same letter, don't do anything
 5. if user guesses word correctly before # of guesses is up OR before music is over, add to wins, display "Prey Slaughtered" on top of boss's photo ("Prey Slaughtered will have to be somewhat transparent")
 6. if user doesn't guess word correctly before # of guesses is up OR before music is over, display "You Died" photo -->
 
@@ -25,13 +25,22 @@
 		Bloodborne Style
 	</div>
 
-	<div class="main-content">
-		<h3 id="instructions">Type any letter to begin!</h3>
-		<p>May the good blood guide your way...</p>
+	<div class="main-content" id='main-content'>
+		<div class="row">
+			<div class="col-md-6">
+				<h3 id="instructions">Type any letter to begin!</h3>
+				<p>May the good blood guide your way...</p>
+			</div>
+			<div class="col-md-6">
+				<h3 id="score">Wins: <span>0</span></h3>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-6">
 				<h3>Current word</h3>
 				<p id="current-word"></p>
+				<!-- <img id="win-img" src="assets/images/preyslaughtered.jpg" height= 300px, width= 450px, style="visibility: hidden;">
+				<img id="lose-img" src="assets/images/youdied.jpg" height= 300px, width= 450px, style="visibility: hidden;"> -->
 				<h3>Tries left: <span id="tries-left">12</span></h3>
 			</div>
 			<div class="col-md-6">
@@ -47,8 +56,7 @@
 				</div>
 			</div>
 		</div>
-		<h3 id="score">Wins: <span>0</span></h3>
-		<script src="script.js"></script>
+		<script src="script_object.js"></script>
 
 	</div>
 </body>
